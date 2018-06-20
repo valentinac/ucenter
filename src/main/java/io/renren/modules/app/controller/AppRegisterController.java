@@ -38,9 +38,13 @@ public class AppRegisterController {
 
         UserEntity user = new UserEntity();
         user.setMobile(form.getMobile());
-        user.setUsername(form.getMobile());
+        user.setUsername(form.getUserName()==null?form.getMobile():form.getUserName());     //如果用户名为空则使用手机号码为用户名
         user.setPassword(DigestUtils.sha256Hex(form.getPassword()));
         user.setCreateTime(new Date());
+        //新增的字段
+        user.setEmail(form.getEmail());
+        user.setSite(form.getSite());
+        user.setReferrerId(form.getReferrerId());
         userService.insert(user);
 
         return R.ok();

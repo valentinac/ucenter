@@ -58,7 +58,7 @@ public class UserEntity implements Serializable {
 	/**
 	 * 推荐人id
 	 */
-	private String referrerId;
+	private long referrerId;
 	/**
 	 * 密码
 	 */
@@ -145,11 +145,11 @@ public class UserEntity implements Serializable {
 		this.site = site;
 	}
 
-	public String getReferrerId() {
+	public long getReferrerId() {
 		return referrerId;
 	}
 
-	public void setReferrerId(String referrerId) {
+	public void setReferrerId(long referrerId) {
 		this.referrerId = referrerId;
 	}
 }
