@@ -31,11 +31,11 @@ paths:
           in: query
           type: string
           required: true
-  /user/register:
+  /app/register:
           post:
             tags:
               - 用户操作
-            summary: 用户注册（未完成）
+            summary: 用户注册
             produces:
               - application/json
             parameters:
@@ -44,13 +44,13 @@ paths:
                 in: body
                 type: string
                 schema:
-                  $ref: '#/definitions/RegisterForm'
+                  $ref: '#/definitions/registerForm'
                 required: true
             responses:
               '200':
                 schema:
-                  $ref: '#/definitions/Register'
-  /user/login:
+                  $ref: '#/definitions/R'
+  /app/login:
         post:
           tags:
             - 用户操作
@@ -68,8 +68,8 @@ paths:
           responses:
             '200':
               schema:
-                $ref: '#/definitions/userLogin'
-  /account/recharge:
+                $ref: '#/definitions/Login'
+  /app/account/recharge:
       post:
         tags:
           - 用户账户
@@ -88,7 +88,7 @@ paths:
           '200':
             schema:
               $ref: '#/definitions/R'
-  /account/transfer:
+  /app/account/transfer:
       post:
         tags:
           - 用户账户
@@ -107,7 +107,7 @@ paths:
           '200':
             schema:
               $ref: '#/definitions/R'
-  /account/pay:
+  /app/account/pay:
         post:
           tags:
             - 用户账户
@@ -1150,6 +1150,27 @@ definitions:
       uuid:
         description: UUID
         type: string
+  registerForm:
+    type: object
+    properties:
+      userName:
+        description: 用户名
+        type: string
+      password:
+        description: 密码
+        type: string
+      mobile:
+        description: 手机号码
+        type: string
+      email:
+        description: 邮箱
+        type: string
+      site:
+        description: 站点
+        type: string
+      referrerId:
+        description: 推荐人
+        type: integer
   PasswordForm:
     type: object
     properties:
