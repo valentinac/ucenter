@@ -61,7 +61,6 @@ public class AccountLogsController {
     @RequiresPermissions("app:accountlogs:save")
     public R save(@RequestBody AccountLogsEntity accountLogs){
 			accountLogsService.insert(accountLogs);
-
         return R.ok();
     }
 

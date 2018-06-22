@@ -3,6 +3,7 @@ package com.qidiancamp.modules.app.controller;
 import java.util.Arrays;
 import java.util.Map;
 
+import com.qidiancamp.modules.app.service.AccountLogsService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,6 +31,8 @@ import com.qidiancamp.common.utils.R;
 public class UserAccountController {
     @Autowired
     private UserAccountService userAccountService;
+    @Autowired
+    private AccountLogsService accountLogsService;      //账户日志明细表操作
 
     /**
      * 列表
@@ -83,6 +86,37 @@ public class UserAccountController {
     @RequiresPermissions("app:useraccount:delete")
     public R delete(@RequestBody Long[] acctIds){
 			userAccountService.deleteBatchIds(Arrays.asList(acctIds));
+
+        return R.ok();
+    }
+
+    /**
+     * 充值
+     * @return
+     */
+    @RequestMapping("/recharge")
+    public R recharge(){
+        //
+
+        return R.ok();
+    }
+
+    /**
+     * 转账
+     * @return
+     */
+    @RequestMapping("/transfer")
+    public R transfer(){
+
+        return R.ok();
+    }
+
+    /**
+     * 支付
+     * @return
+     */
+    @RequestMapping("/pay")
+    public R pay(){
 
         return R.ok();
     }
